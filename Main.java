@@ -9,7 +9,7 @@ class Main {
     Types();
     Conditions();
     Loops();
-    SwitchCase();
+    SwitchCase(1);
     TestFunctions();
   }
 
@@ -349,7 +349,7 @@ class Main {
   static void TestFunctions() {
     // Test all 3/4/5 combinations
     // TODO: Check a 5/12/13 one also?
-    if (isRightTriangle(3,4,5){
+    if (isRightTriangle(3,4,5)) {
       System.out.println("isRightTriangle works for a 3/4/5 triangle");
     } else {
       System.out.println("isRightTriangle fails for a 3/4/5 triangle");
