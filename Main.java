@@ -9,6 +9,7 @@ class Main {
     Types();
     Conditions();
     Loops();
+    SwitchCase();
     TestFunctions();
   }
 
@@ -102,7 +103,8 @@ class Main {
     // They generally map to "doing something"
     // 3 * 6 is an expression that equals 18
     y = 3 * 6; // assign the value of the expression to variable "y"
-
+    // If I'm using 'y' in an expression, it's value is 18, now!
+    // this is true: y == 18
     /*
      * Assignment statements: Evaluate the expression on the right and put the value
      * into the variable on the left!
@@ -112,14 +114,14 @@ class Main {
     y = 4 * x + 2; // variable y now contains the value 30
 
     // We can assign a value when we declare a variable
-    // (it's generally a good idea)
-
+    // (and it's generally a good idea: unassigned variables cause bugs, java doesn't allow it)
     int a = 3;
     int b = 4;
-    // If you try to "evaluate" a variable before it's been "assigned" Java no-likey
+
+    // If you try to use a variable in an expression before it's been "assigned" Java no-likey
     int c, d, e, f, g, h;
 
-    // int j = c * d; // Program no workey. Java get whiney.
+    // int j = c * d; // Program no workey. Java get whiney. c & d don't have values yet!
 
     // Putting it together:
     c = a + b;
@@ -155,8 +157,8 @@ class Main {
     int d = 4;
     int e = 5;
     int f = 5;
-    // Just 'if'!
 
+    // Just 'if'!
     if (a == b) // The expression in the () must be a logical expression!
       System.out.println("Nope");
     if (a != b)
@@ -189,7 +191,10 @@ class Main {
     } else {
       System.out.println("a is already the same value as b.");
     }
+
+    // Also switch/case, but we'll hit that later
   }
+
   static void Loops() {
     // Doing something more than once (aka "loops")
     int a = 0; 
@@ -298,7 +303,7 @@ class Main {
   // In the same way that a 'for' loop is just another way to write a while loop,
   // you can use a switch statement to replace a bunch of specific if/else
   // statements:
-  static int switchCase(int a) {
+  static int SwitchCase(int a) {
     switch (a) {
     case 1: // if (a == 1 || a == 2 || a == 3 || a == 5 || a == 7 || a == 11)
     case 2:
@@ -344,22 +349,17 @@ class Main {
   static void TestFunctions() {
     // Test all 3/4/5 combinations
     // TODO: Check a 5/12/13 one also?
-    if (isRightTriangle(3,4,5) &&
-        isRightTriangle(3,5,4) && 
-        isRightTriangle(4,3,5) && 
-        isRightTriangle(4,5,3) &&
-        isRightTriangle(5,3,4) &&
-        isRightTriangle(5,4,3)){
+    if (isRightTriangle(3,4,5){
       System.out.println("isRightTriangle works for a 3/4/5 triangle");
     } else {
       System.out.println("isRightTriangle fails for a 3/4/5 triangle");
     }
-    if (isRightTriangle(1,2,3) || 
-        isRightTriangle(1,3,2) ||
-        isRightTriangle(2,1,3) ||
-        isRightTriangle(2,3,1) ||
-        isRightTriangle(3,1,2) ||
-        isRightTriangle(3,2,1)){
+    if (isRightTriangle(13, 5, 12)) {
+      System.out.println("5/12/13 triangle also appears to work!");
+    } else {
+      System.out.println("5/12/13 triangle does not work!");
+    }
+    if (isRightTriangle(1,2,3)){
       System.out.println("isRightTriangle fails for a 1/2/3 triangle");
     } else {
       System.out.println("isRightTriangle works for a 1/2/3 triangle");
