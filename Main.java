@@ -12,11 +12,11 @@ class Main {
     TestFunctions();
   }
 
-  public static void Introduction() {
+  static void Introduction() {
     System.out.println("Hello world!");
   }
 
-  public static void Comments() {
+  static void Comments() {
     // This is a single line comment. I can literally type anything I want here.
     /*
      * This is another kind of comment It allows me to write stuff on multiple lines
@@ -26,7 +26,7 @@ class Main {
     System.out.println("Comments are helpful"); // even at the end of the line!
   }
 
-  public static int MathematicalExpressions() {
+  static int MathematicalExpressions() {
     /*
      * 3 + 1 That expression is 4 (duh) 3 - 1 equal 2 3 * 2 equals 6: '*' means
      * "multiply" 8 / 2 equal 4: '/' is "divide" 5 % 3 equals 2: '%' means
@@ -35,7 +35,7 @@ class Main {
     return (8 + 412) * 15 / 8 % 7;
   }
 
-  public static boolean LogicalExpression() {
+  static boolean LogicalExpression() {
     /*
       Simple logical expressions:
 
@@ -75,7 +75,7 @@ class Main {
     return true && (3 > 2);
   }
 
-  public static void Variables() {
+  static void Variables() {
     // In algebraic terms, "x" & "y":
     // y = mx + b
     // In Java:
@@ -95,7 +95,7 @@ class Main {
 
   }
 
-  public static void Statements() {
+  static void Statements() {
     int x, y;
     /* Logically "a line of some code" */
     // They end with a semicolon!
