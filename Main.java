@@ -6,6 +6,10 @@ class Main {
     LogicalExpression();
     Variables();
     Statements();
+    Types();
+    Conditions();
+    Loops();
+    TestFunctions();
   }
 
   public static void Introduction() {
@@ -83,6 +87,7 @@ class Main {
     int _this_is_okay;
     int _1sillyVariableName;
     // ^^^^ Don't do that, it's really ugly
+    // int 1stPlace; << That's not legal: has to start with a letter or underscore
     int inJavaCharacterCaseMatters;
     int injavacharactercasematters;
     // ^^^ Those are different variables!
@@ -123,7 +128,15 @@ class Main {
     f = e / b;
     g = a * b + c - d / e + f % 4;
 
-    /* Types */
+    // In *most* places, where you can have single statement,
+    // You can also have a "block" of statements:
+    { // Open with a curly-brace
+      x = 3;
+      y = 3 * x + 2;
+    } // Close with anothe curly-brace
+  }
+
+  static void Types() {
 
     int j; // Integer
     float k; // "Floating point" - sort of a "real number"
@@ -131,18 +144,17 @@ class Main {
     boolean t; // True or False - Logical variables!
     double m = 1.0;
     double radius = 3.0;
+  
+    // More complicated types we'll talk about later (Arrays, Strings, Enums, Objects)
+  }
 
-    // More complicated types we'll talk about later (Arrays, Strings, Objects)
-
-    // In *most* places, where you can have single statement,
-    // You can also have a "block" of statements:
-    { // Open with a curly-brace
-      x = 3;
-      y = 3 * x + 2;
-    } // Close with anothe curly-brace
-
-    /* Conditions */
-
+  static void Conditions() {
+    int a = 0;
+    int b = 1;
+    int c = 3;
+    int d = 4;
+    int e = 5;
+    int f = 5;
     // Just 'if'!
 
     if (a == b) // The expression in the () must be a logical expression!
@@ -177,9 +189,11 @@ class Main {
     } else {
       System.out.println("a is already the same value as b.");
     }
-
+  }
+  static void Loops() {
     // Doing something more than once (aka "loops")
-
+    int a = 0; 
+    int b = 10;
     // Executes the block of statements while the condition is true
     while (a != b) { // the statement had better make this thing change!
       System.out.println("a != b still");
@@ -297,13 +311,13 @@ class Main {
     case 0: { // else if (a == 0)
       return -1;
     }
-    case 4: // else if ()
+    case 4: // else if (...)
     case 6:
     case 8:
     case 9: {
       return 1;
     }
-    default: {
+    default: { // else ...
       return 2;
     }
     }
@@ -326,13 +340,63 @@ class Main {
     // Strings: lists of characters (i.e. words/text)
     String s = "this is some text that I could print!";
   }
+
+  static void TestFunctions() {
+    // Test all 3/4/5 combinations
+    // TODO: Check a 5/12/13 one also?
+    if (isRightTriangle(3,4,5) &&
+        isRightTriangle(3,5,4) && 
+        isRightTriangle(4,3,5) && 
+        isRightTriangle(4,5,3) &&
+        isRightTriangle(5,3,4) &&
+        isRightTriangle(5,4,3)){
+      System.out.println("isRightTriangle works for a 3/4/5 triangle");
+    } else {
+      System.out.println("isRightTriangle fails for a 3/4/5 triangle");
+    }
+    if (isRightTriangle(1,2,3) || 
+        isRightTriangle(1,3,2) ||
+        isRightTriangle(2,1,3) ||
+        isRightTriangle(2,3,1) ||
+        isRightTriangle(3,1,2) ||
+        isRightTriangle(3,2,1)){
+      System.out.println("isRightTriangle fails for a 1/2/3 triangle");
+    } else {
+      System.out.println("isRightTriangle works for a 1/2/3 triangle");
+    }
+    if (power(1,1) == 1 &&
+        power(1,10) == 1 &&
+        power(3, 0) == 1 &&
+        power(3, 2) == 9 && 
+        power(4, 4) == 256) {
+          System.out.println("power looks pretty good");
+    } else {
+      System.out.println("power has bugs");
+    }
+    if (fib(1) != 1) {
+      System.out.println("fib has trivial issues");
+    }
+    int cur = 1;
+    int prv = 0;
+    for (int i = 0; i < 20; i++) {
+      int f = fib(i+2);
+      if (f != cur + prv) {
+        System.out.printf("Fib(%d) is wrong (should be %d, returned %d)%n", i+2, cur + prv, f);
+      }
+      int newVal = cur + prv;
+      prv = cur;
+      cur = newVal;
+    }
+  }
+}
+
   // Enumerations
-  enum MotorSpeed {Slow = 10, Fast = 30, Stop = 0, Reverse = -15, WickedFast=300};
+/*  enum MotorSpeed {Slow = 10, Fast = 30, Stop = 0, Reverse = -15, WickedFast=300};
   static void useEnum( ){
     SetMotor(MotorSpeed.Slow);
   }
   static int SetMotor(MotorSpeed speed) {return 0;}
-}
+  */
 
     // Objects: a thing that represents a collection of related types as single
     // concept
